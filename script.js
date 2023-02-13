@@ -3,8 +3,8 @@ class Customer {
         this.id = id;
         this.name = name;
         this.balance = balance;
-        this.email = email;//món ăn
-        this.phone = phone;//mô tả  
+        this.email = email;
+        this.phone = phone;
         this.address = address;
     }
 }
@@ -85,7 +85,7 @@ function resetForm() {
 }
 
 function findMaxId() {
-    var max = 0;
+    let max = 0;
     for (let customer of customers) {
         if (customer.id > max) {
             max = customer.id
@@ -94,9 +94,9 @@ function findMaxId() {
     return max;
 }
 
-var remove;
+let remove;
 
-function findIndex(index){
+function findIndex(index) {
     remove = index;
     document.getElementById('indexcustomers').value = index;
 }
@@ -106,8 +106,8 @@ function removeCustomer(remove) {
     renderCustomer(customers);
 }
 
-var editid;
-var editbalance;
+let editid;
+let editbalance;
 
 
 function editCustomer(index) {
