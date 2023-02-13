@@ -35,7 +35,7 @@ function renderCustomer() {
         </td>
         <td class="text-center">
             <button type="button" class="btn btn-outline-danger" title="Suspended" data-toggle="tooltip"
-                data-bs-original-title="Edit" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                data-bs-original-title="Edit" data-bs-toggle="modal" data-bs-target="#deleteModal" onclick="findIndex(${index})" >
                 Delete
             </button>
         </td>
@@ -76,13 +76,21 @@ function findMaxId() {
     return max;
 }
 
-function removeCustomer(index) {
-    customers.splice(index, 1);
+var remove;
+
+function findIndex(index){
+    remove = index;
+    document.getElementById('indexcustomers').value = index;
+}
+
+function removeCustomer(remove) {
+    customers.splice(remove, 1);
     renderCustomer(customers);
 }
 
 var editid;
 var editbalance;
+
 
 function editCustomer(index) {
     document.getElementById('indexcustomers').value = index;
