@@ -13,7 +13,11 @@ var customers = [];
 
 function init() {
     customers = [
-        new Customer(1, "nguyen", "nguyen@gmail.com", "0987654321", "hue", "0")
+        new Customer(1, "nguyen", "nguyen@gmail.com", "0987654321", "hue", "0"),
+        new Customer(2, "phuc", "phuc@gmail.com", "0987987987", "tuha", "0"),
+        new Customer(3, "hoa", "hoa@gmail.com", "0987698765", "sai gon", "0"),
+        new Customer(4, "mac", "mac@gmail.com", "0987659876", "da nang", "0"),
+        new Customer(5, "ming", "ming@gmail.com", "0989879876", "ha noi", "0")
     ];
 }
 
@@ -53,6 +57,20 @@ function save() {
     let id = findMaxId() + 1;
     let balance = 0;
 
+    if (name == null || name == '') {
+        alert('tên khách hàng không được để trống');
+        return;
+    } if (email == null || email == '') {
+        alert('địa chỉ email không được để trống');
+        return;
+    } if (phone == null || phone == '') {
+        alert('số điện thoại không được bỏ trống')
+        return;
+    } if (address == null || address == '') {
+        alert('địa chỉ không được bỏ trống');
+        return;
+    }
+
     let newCustomer = new Customer(id, name, email, phone, address, balance);
     customers.push(newCustomer);
     renderCustomer();
@@ -67,7 +85,7 @@ function resetForm() {
 }
 
 function findMaxId() {
-    let max = 0;
+    var max = 0;
     for (let customer of customers) {
         if (customer.id > max) {
             max = customer.id
